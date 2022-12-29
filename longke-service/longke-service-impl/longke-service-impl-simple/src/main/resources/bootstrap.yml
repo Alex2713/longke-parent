@@ -1,0 +1,59 @@
+# Tomcat
+server:
+  port: 11000
+  servlet:
+    encoding:
+      charset: utf-8
+    context-path: /
+  tomcat:
+    ### tomcat的URI编码
+    uri-encoding: UTF-8
+    threads:
+      ### tomcat最大线程数，默认为200
+      max: 200
+      ### Tomcat启动初始化的线程数，默认值10
+      min-spare: 10
+
+# Spring
+spring:
+  main:
+    allow-circular-references: true
+    banner-mode: off
+  application:
+    # 应用名称
+    name: simple-service
+  profiles:
+    # 环境配置
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null
+    time-zone: GMT+8
+
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.longke.service.impl.simple
+
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+swagger:
+  title: 示例服务
+  description: 示例demo
+  version: 1.0.0
+  contact:
+    name: Alex-2713
+    url: https://www.longke.com
+    email: Alex_2713@126.com

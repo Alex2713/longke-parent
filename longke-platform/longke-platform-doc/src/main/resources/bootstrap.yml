@@ -1,0 +1,31 @@
+# Tomcat
+server:
+  port: 12000
+  servlet:
+    encoding:
+      charset: utf-8
+    context-path: /
+  tomcat:
+    ### tomcat的URI编码
+    uri-encoding: UTF-8
+    threads:
+      ### tomcat最大线程数，默认为200
+      max: 200
+      ### Tomcat启动初始化的线程数，默认值10
+      min-spare: 10
+
+# Spring
+spring:
+  main:
+    allow-circular-references: true
+    banner-mode: off
+  application:
+    # 应用名称
+    name: doc-service
+  profiles:
+    # 环境配置
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null
+    time-zone: GMT+8
